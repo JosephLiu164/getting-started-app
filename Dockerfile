@@ -1,4 +1,6 @@
-FROM ubuntu:latest
-LABEL authors="Joseph"
-
-ENTRYPOINT ["top", "-b"]
+FROM node:18-alpine
+WORKDIR /app
+COPY . .
+RUN yarn install --production
+CMD ["node", "src/index.js"]
+EXPOSE 3000
